@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #14141f;
+    height: 100vh;
+    width: 100vw;
+}
+
+.gridPixel {
+    border: 1px solid black;
+    background-color: white;
+}
+
+.controlPanel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
