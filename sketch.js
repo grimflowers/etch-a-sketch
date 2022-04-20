@@ -1,9 +1,17 @@
-function colorPixel(pixel, color) {
-    pixel.style.backgroundColor = color;
+function colorPixel(pixel) {
+    let rainbowBtn = document.querySelector('.rainbowBtn');
+
+    if (rainbowBtn.classList.contains('clicked')) {
+        pixel.style.backgroundColor = generateRandomColor();
+    } else {
+        let color = document.querySelector('.canvas').getAttribute('data-color');
+
+        pixel.style.backgroundColor = color;
+    }
 }
 
 function setActiveColor(color) {
-    activeColor = color;
+    document.querySelector('.canvas').setAttribute('data-color', color);
 }
 
 function clearCanvas() {
@@ -12,6 +20,14 @@ function clearCanvas() {
     while (canvas.firstChild) {
         canvas.removeChild(canvas.firstChild);
     }
+}
+
+function generateRandomColor() {
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+
+    return `rgb(${r}, ${g}, ${b})`;
 }
 
 function drawcanvas(width) {
@@ -26,12 +42,12 @@ function drawcanvas(width) {
 
         div.addEventListener("mouseover", function(e) {
             if (canvas.classList.contains('drawable')) {
-                colorPixel(e.target, activeColor);
+                colorPixel(e.target);
             }
         });
 
         div.addEventListener('mousedown', function(e){
-            colorPixel(e.target, activeColor);
+            colorPixel(e.target);
         })
 
         canvas.appendChild(div);
@@ -45,7 +61,6 @@ function drawcanvas(width) {
 }
 
 let canvas = document.querySelector('.canvas');
-var activeColor = "black";
 
 canvas.addEventListener('mousedown', function() {
     canvas.classList.add('drawable');
@@ -59,6 +74,19 @@ drawcanvas(20);
 document.querySelector('input[name="colorSelect"]').value = "#000000";
 document.querySelector('.slider').value = "20";
 
+document.querySelector('.rainbowBtn').addEventListener('click', function() {
+    let rainbowBtn = document.querySelector('.rainbowBtn');
+
+    if (rainbowBtn.classList.contains("clicked")) {
+        rainbowBtn.classList.remove('clicked');
+        rainbowBtn.style.backgroundColor = "white";
+        rainbowBtn.style.transition = "all 0.5s";
+    } else {
+        rainbowBtn.classList.add('clicked');
+        rainbowBtn.style.backgroundColor = generateRandomColor();
+        rainbowBtn.style.transition = "all 0.5s";
+    }
+});
 
 document.querySelector('.resetCanvasBtn').addEventListener('click', function() {
     let canvas = document.querySelector('.canvas');
