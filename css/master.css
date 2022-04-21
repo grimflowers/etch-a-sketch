@@ -2,24 +2,23 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background-color: #14141f;
+    background-color: rgb(56, 56, 61);
     height: 100vh;
     width: 100vw;
+    font-family: 'roboto', sans-serif;
+    font-weight: 200;
 }
 
-.gridPixel {
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-left-width: 0px;
-    border-bottom-width: 0px;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
+.btn {
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid white;
 }
 
-.controlPanel {
+.btnContainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,17 +30,44 @@ body {
     overflow: hidden;
 }
 
-.resetCanvasBtn, .colorPanel, .rainbowBtn {
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-    border: none;
-}
-
 .colorPanel > * {
     width: 200%;
     height: 200%;
     transform: translate(-25%, -25%)
+}
+
+.controlPanel {
+    padding-bottom: 30px;
+}
+
+.gridPixel {
+    border: 0.5px solid black;
+    background-color: white;
+}
+
+h1 {
+    font-weight: 200;
+    color: #ff9966;
+}
+
+header {
+    width: 100%;
+    background-color: rgb(43, 42, 51);
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    height: 50%;
+    width: 50%;
+}
+
+.logoContainer {
+    position: fixed;
+    left: 10px;
+    padding: 10px;
 }
 
 .slider {
@@ -49,7 +75,11 @@ body {
     cursor: pointer;
 }
 
-.defaultBtn {
-    background-color: white;
-    transition: all 0.5s;
+.sliderContainer {
+    padding: 10px;
+}
+
+.smallBtn {
+    width: 2rem;
+    height: 2rem;
 }
