@@ -62,12 +62,12 @@ function generateRandomColor() {
 function intializeCanvas() {
     let canvas = document.querySelector('.canvas');
 
-    canvas.addEventListener('mousedown', function() {
-        canvas.classList.add('drawable');
-    });
-
-    canvas.addEventListener('mouseup', function() {
-        canvas.classList.remove('drawable');
+    canvas.addEventListener('click', function() {
+        if (canvas.classList.contains('drawable')) {
+            canvas.classList.remove('drawable');
+        } else {
+            canvas.classList.add('drawable');
+        }
     });
 
     drawcanvas(20);
